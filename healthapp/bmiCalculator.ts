@@ -1,6 +1,6 @@
 import { parseBmiArguments } from "./utils.ts";
 
-const CalculateBmi = (height: number, weight: number): string => {
+export const CalculateBmi = (height: number, weight: number): string => {
   if (height === 0) {
     throw new Error("Can't divide by zero.");
   }
@@ -14,13 +14,15 @@ const CalculateBmi = (height: number, weight: number): string => {
   return "Normal range";
 };
 
-try {
-  const { height, weight } = parseBmiArguments(process.argv);
-  console.log(CalculateBmi(height, weight));
-} catch (error: unknown) {
-  let errorMessage = "Something bad happened.";
-  if (error instanceof Error) {
-    errorMessage += " Error: " + error.message;
+if (process.argv[1] === import.meta.filename) {
+  try {
+    const { height, weight } = parseBmiArguments(process.argv);
+    console.log(CalculateBmi(height, weight));
+  } catch (error: unknown) {
+    let errorMessage = "Something bad happened.";
+    if (error instanceof Error) {
+      errorMessage += " Error: " + error.message;
+    }
+    console.log(errorMessage);
   }
-  console.log(errorMessage);
 }
