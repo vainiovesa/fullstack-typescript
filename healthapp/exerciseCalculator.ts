@@ -12,14 +12,14 @@ interface Result {
 
 type Rating = 1 | 2 | 3;
 
-const calculateExercises = (days: number[], target: number): Result => {
+export const calculateExercises = (days: number[], target: number): Result => {
   const periodLength: number = days.length;
   const trainingDays: number = days.filter((d) => d !== 0).length;
   const average = avg(days);
   const success: boolean = average >= target;
 
   let rating: Rating = 1;
-  let ratingDescription: string = "could be better";
+  let ratingDescription: string = "bad";
   if (average > target - 0.5) {
     rating = 2;
     ratingDescription = "not too bad but could be better";
@@ -40,13 +40,15 @@ const calculateExercises = (days: number[], target: number): Result => {
   };
 };
 
-try {
-  const { days, target } = parseExerciseArguments(process.argv);
-  console.log(calculateExercises(days, target));
-} catch (error: unknown) {
-  let errorMessage = "Something bad happened.";
-  if (error instanceof Error) {
-    errorMessage += " Error: " + error.message;
+if (process.argv[1] === import.meta.filename) {
+  try {
+    const { days, target } = parseExerciseArguments(process.argv);
+    console.log(calculateExercises(days, target));
+  } catch (error: unknown) {
+    let errorMessage = "Something bad happened.";
+    if (error instanceof Error) {
+      errorMessage += " Error: " + error.message;
+    }
+    console.log(errorMessage);
   }
-  console.log(errorMessage);
 }
