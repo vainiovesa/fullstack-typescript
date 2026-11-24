@@ -1,0 +1,35 @@
+POST http://localhost:3001/api/patients
+Content-Type: application/json
+
+{
+    "name": "tester",
+    "dateOfBirth": "2000-1-1",
+    "ssn": "010100-010A",
+    "gender": "male",
+    "occupation": "tester"
+}
+
+###
+
+POST http://localhost:3001/api/patients
+Content-Type: application/json
+
+{
+    "name": "tester2",
+    "dateOfBirth": "2000-1-2",
+    "ssn": "020100-010A",
+    "gender": "",
+    "occupation": "also tester"
+}
+
+###
+
+POST http://localhost:3001/api/patients
+Content-Type: application/json
+
+{
+    "name": "Esther the Tester",
+    "ssn": "030100-010A",
+    "gender": "female",
+    "occupation": "tester too"
+}
