@@ -3,7 +3,7 @@ Content-Type: application/json
 
 {
     "name": "tester",
-    "dateOfBirth": "2000-1-1",
+    "dateOfBirth": "2000-01-01",
     "ssn": "010100-010A",
     "gender": "male",
     "occupation": "tester"
@@ -16,7 +16,7 @@ Content-Type: application/json
 
 {
     "name": "tester2",
-    "dateOfBirth": "2000-1-2",
+    "dateOfBirth": "2000-01-02",
     "ssn": "020100-010A",
     "gender": "",
     "occupation": "also tester"
